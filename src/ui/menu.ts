@@ -4,7 +4,7 @@ import { GAMES } from '../games/registry';
 import { formatScore, h } from './dom';
 import { paletteFor } from './palette';
 
-const REPO_URL = 'https://github.com/FabianoArthur/atividades3';
+const REPO_URL = 'https://github.com/FabianoArthur/canvas-arcade';
 
 /** Static thumbnail: the game's own renderer drawing a fresh state. */
 function preview(gameId: string): HTMLCanvasElement {

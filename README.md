@@ -8,10 +8,10 @@ No game engine, no UI framework, no runtime dependencies: a fixed-timestep loop,
 logic covered by 80 unit tests, keyboard and touch controls, and a demo mode where each game
 plays itself.
 
-[![CI](https://github.com/FabianoArthur/atividades3/actions/workflows/ci.yml/badge.svg)](https://github.com/FabianoArthur/atividades3/actions/workflows/ci.yml)
+[![CI](https://github.com/FabianoArthur/canvas-arcade/actions/workflows/ci.yml/badge.svg)](https://github.com/FabianoArthur/canvas-arcade/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-**[▶ Play it in the browser](https://fabianoarthur.github.io/atividades3/)** · [Português](README.pt-BR.md)
+**[▶ Play it in the browser](https://fabianoarthur.github.io/canvas-arcade/)** · [Português](README.pt-BR.md)
 
 <img src="docs/assets/demo.gif" width="480" alt="Animated demo: the autopilot playing Snake, then Breakout, then Tetris, in the dark theme.">
 
@@ -47,7 +47,7 @@ support, and a phone layout with on-screen controls.
 ## Run it
 
 ```bash
-git clone https://github.com/FabianoArthur/atividades3.git canvas-arcade
+git clone https://github.com/FabianoArthur/canvas-arcade.git canvas-arcade
 cd canvas-arcade
 npm ci
 npm run dev          # http://localhost:5173

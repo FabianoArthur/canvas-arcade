@@ -8,10 +8,10 @@ Sem engine de jogo, sem framework de UI, sem dependências em runtime: loop de p
 lógica de jogo pura coberta por 80 testes unitários, controles de teclado e toque, e um modo
 demo em que cada jogo joga sozinho.
 
-[![CI](https://github.com/FabianoArthur/atividades3/actions/workflows/ci.yml/badge.svg)](https://github.com/FabianoArthur/atividades3/actions/workflows/ci.yml)
+[![CI](https://github.com/FabianoArthur/canvas-arcade/actions/workflows/ci.yml/badge.svg)](https://github.com/FabianoArthur/canvas-arcade/actions/workflows/ci.yml)
 [![Licença: MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-blue.svg)](LICENSE)
 
-**[▶ Jogar no navegador](https://fabianoarthur.github.io/atividades3/)** · [English](README.md)
+**[▶ Jogar no navegador](https://fabianoarthur.github.io/canvas-arcade/)** · [English](README.md)
 
 <img src="docs/assets/demo.gif" width="480" alt="Demo animada: o piloto automático jogando Snake, depois Breakout, depois Tetris, no tema escuro.">
 
@@ -47,7 +47,7 @@ padrão, sem arquivo de áudio), pausa ao perder o foco, temas claro e escuro qu
 ## Como rodar
 
 ```bash
-git clone https://github.com/FabianoArthur/atividades3.git canvas-arcade
+git clone https://github.com/FabianoArthur/canvas-arcade.git canvas-arcade
 cd canvas-arcade
 npm ci
 npm run dev          # http://localhost:5173
