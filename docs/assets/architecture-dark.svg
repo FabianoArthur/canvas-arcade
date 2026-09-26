@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="880" height="440" role="img" aria-labelledby="title desc" lang="en">
+<title id="title">How canvas-arcade works</title>
+<desc id="desc">The player's keys, touches and mouse, or the autopilot in demo mode, feed an InputBuffer that reports each press exactly once per step. Inside the game loop, requestAnimationFrame drives a FixedStepper that runs update(state, input) at a fixed 60 Hz; update is pure game logic covered by unit tests. render(ctx, state) then draws the state on a HiDPI canvas. Events and the final score flow out of update to the sound effects (WebAudio, muted by default) and to the high-score store (localStorage, guarded by try/catch).</desc>
+<style>text{font-family:ui-sans-serif, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif;fill:#e6edf3}.b{font-size:14px;font-weight:600}.m{font-size:12.5px;fill:#9198a1}.code{font-family:ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;, monospace;font-size:13.5px;font-weight:600;fill:#79c0ff}.h{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;fill:#9198a1}.bg{fill:#0d1117;stroke:#30363d}.card{fill:#161b22;stroke:#30363d}.zone{fill:none;stroke:#545d68;stroke-dasharray:5 4}.e{fill:none;stroke:#6e7681;stroke-width:1.5;stroke-linejoin:round}.dash{stroke-dasharray:4 4}.hl{fill:none;stroke:#ffa657;stroke-width:2;stroke-linejoin:round;opacity:0}.pk{opacity:0}.dot{fill:#ffa657}.halo{fill:#ffa657;opacity:.25}@keyframes d0{0%,0.00%{opacity:0;transform:translate(264px,72px)}1.00%{opacity:1}2.86%{opacity:1;transform:translate(284px,72px)}8.57%{opacity:1;transform:translate(284px,112px)}11.43%{opacity:1;transform:translate(304px,112px)}13.43%,100%{opacity:0;transform:translate(304px,112px)}}@keyframes h0{0%,0.00%{opacity:0}1.00%,13.43%{opacity:.9}15.43%,100%{opacity:0}}@keyframes d1{0%,14.29%{opacity:0;transform:translate(544px,122px)}15.29%{opacity:1}17.75%{opacity:1;transform:translate(564px,122px)}18.79%{opacity:1;transform:translate(564px,116px)}25.71%{opacity:1;transform:translate(604px,116px)}27.71%,100%{opacity:0;transform:translate(604px,116px)}}@keyframes h1{0%,14.29%{opacity:0}15.29%,27.71%{opacity:.9}29.71%,100%{opacity:0}}@keyframes d2{0%,28.57%{opacity:0;transform:translate(720px,148px)}29.57%{opacity:1}40.00%{opacity:1;transform:translate(720px,188px)}42.00%,100%{opacity:0;transform:translate(720px,188px)}}@keyframes h2{0%,28.57%{opacity:0}29.57%,42.00%{opacity:.9}44.00%,100%{opacity:0}}@keyframes d3{0%,42.86%{opacity:0;transform:translate(720px,252px)}43.86%{opacity:1}54.29%{opacity:1;transform:translate(720px,292px)}56.29%,100%{opacity:0;transform:translate(720px,292px)}}@keyframes h3{0%,42.86%{opacity:0}43.86%,56.29%{opacity:.9}58.29%,100%{opacity:0}}@keyframes d4{0%,57.14%{opacity:0;transform:translate(604px,136px)}58.14%{opacity:1}58.70%{opacity:1;transform:translate(574px,136px)}67.01%{opacity:1;transform:translate(574px,296px)}68.57%{opacity:1;transform:translate(544px,296px)}70.57%,100%{opacity:0;transform:translate(544px,296px)}}@keyframes h4{0%,57.14%{opacity:0}58.14%,70.57%{opacity:.9}72.57%,100%{opacity:0}}@keyframes d5{0%,71.43%{opacity:0;transform:translate(574px,296px)}72.43%{opacity:1}79.95%{opacity:1;transform:translate(574px,384px)}82.86%{opacity:1;transform:translate(544px,384px)}84.86%,100%{opacity:0;transform:translate(544px,384px)}}@keyframes h5{0%,71.43%{opacity:0}72.43%,84.86%{opacity:.9}86.86%,100%{opacity:0}}@keyframes d6{0%,85.71%{opacity:0;transform:translate(264px,172px)}86.71%{opacity:1}88.57%{opacity:1;transform:translate(284px,172px)}94.29%{opacity:1;transform:translate(284px,132px)}97.14%{opacity:1;transform:translate(304px,132px)}99.14%,100%{opacity:0;transform:translate(304px,132px)}}@keyframes h6{0%,85.71%{opacity:0}86.71%,99.14%{opacity:.9}101.14%,100%{opacity:0}}.pk0{animation:d0 9.0s linear infinite}.hl0{animation:h0 9.0s linear infinite}.pk1{animation:d1 9.0s linear infinite}.hl1{animation:h1 9.0s linear infinite}.pk2{animation:d2 9.0s linear infinite}.hl2{animation:h2 9.0s linear infinite}.pk3{animation:d3 9.0s linear infinite}.hl3{animation:h3 9.0s linear infinite}.pk4{animation:d4 9.0s linear infinite}.hl4{animation:h4 9.0s linear infinite}.pk5{animation:d5 9.0s linear infinite}.hl5{animation:h5 9.0s linear infinite}.pk6{animation:d6 9.0s linear infinite}.hl6{animation:h6 9.0s linear infinite}@media (prefers-reduced-motion:reduce){.pk,.hl{animation:none;display:none}}</style>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,1 L9,5 L0,9 z" fill="#6e7681"/></marker></defs>
+<rect x="0.5" y="0.5" width="879" height="439" rx="16" class="bg"/>
+<rect x="584" y="24" width="272" height="392" rx="14" class="zone"/>
+<text x="604" y="50" class="h">game loop</text>
+<text x="604" y="68" class="m">rAF + FixedStepper (60 Hz)</text>
+<rect x="24" y="40" width="240" height="64" rx="10" class="card"/><text x="40" y="67" class="b">Player</text><text x="40" y="88" class="m">keys · touch · mouse</text>
+<rect x="24" y="140" width="240" height="64" rx="10" class="card"/><text x="40" y="167" class="b">Autopilot</text><text x="40" y="188" class="m">demo mode (#/game/demo)</text>
+<rect x="304" y="90" width="240" height="64" rx="10" class="card"/><text x="320" y="117" class="code">InputBuffer</text><text x="320" y="138" class="m">each press once per step</text>
+<rect x="604" y="84" width="232" height="64" rx="10" class="card"/><text x="620" y="111" class="code">update(state, input)</text><text x="620" y="132" class="m">pure logic · unit-tested</text>
+<rect x="604" y="188" width="232" height="64" rx="10" class="card"/><text x="620" y="215" class="code">render(ctx, state)</text><text x="620" y="236" class="m">draws the state</text>
+<rect x="604" y="292" width="232" height="64" rx="10" class="card"/><text x="620" y="319" class="code">&lt;canvas&gt;</text><text x="620" y="340" class="m">HiDPI · scales to fit</text>
+<rect x="304" y="264" width="240" height="64" rx="10" class="card"/><text x="320" y="291" class="code">ScoreStore</text><text x="320" y="312" class="m">localStorage · try/catch</text>
+<rect x="304" y="352" width="240" height="64" rx="10" class="card"/><text x="320" y="379" class="code">Sfx</text><text x="320" y="400" class="m">WebAudio · muted by default</text>
+<path d="M264,72 L284,72 L284,112 L304,112" class="e" marker-end="url(#ah)"/>
+<path d="M544,122 L564,122 L564,116 L604,116" class="e" marker-end="url(#ah)"/>
+<path d="M720,148 L720,188" class="e" marker-end="url(#ah)"/>
+<path d="M720,252 L720,292" class="e" marker-end="url(#ah)"/>
+<path d="M604,136 L574,136 L574,296 L544,296" class="e" marker-end="url(#ah)"/>
+<path d="M574,296 L574,384 L544,384" class="e" marker-end="url(#ah)"/>
+<path d="M264,172 L284,172 L284,132 L304,132" class="e dash" marker-end="url(#ah)"/>
+<text x="566" y="224" class="m" text-anchor="end">events · score</text>
+<text x="24" y="376" class="b">No DOM in game logic:</text>
+<text x="24" y="396" class="m">it runs under Vitest in Node.</text>
+<path d="M264,72 L284,72 L284,112 L304,112" class="hl hl0"/>
+<g class="pk pk0"><circle r="9" class="halo"/><circle r="4.5" class="dot"/></g>
+<path d="M544,122 L564,122 L564,116 L604,116" class="hl hl1"/>
+<g class="pk pk1"><circle r="9" class="halo"/><circle r="4.5" class="dot"/></g>
+<path d="M720,148 L720,188" class="hl hl2"/>
+<g class="pk pk2"><circle r="9" class="halo"/><circle r="4.5" class="dot"/></g>
+<path d="M720,252 L720,292" class="hl hl3"/>
+<g class="pk pk3"><circle r="9" class="halo"/><circle r="4.5" class="dot"/></g>
+<path d="M604,136 L574,136 L574,296 L544,296" class="hl hl4"/>
+<g class="pk pk4"><circle r="9" class="halo"/><circle r="4.5" class="dot"/></g>
+<path d="M574,296 L574,384 L544,384" class="hl hl5"/>
+<g class="pk pk5"><circle r="9" class="halo"/><circle r="4.5" class="dot"/></g>
+<path d="M264,172 L284,172 L284,132 L304,132" class="hl hl6"/>
+<g class="pk pk6"><circle r="9" class="halo"/><circle r="4.5" class="dot"/></g>
+</svg>
